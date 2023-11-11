@@ -15,4 +15,9 @@ if __name__ == "__main__":
     file = sys.argv[1]
     func = sys.argv[2]
 
-    traverse_and_print_functions(file, func)
+    with open(file, 'r') as f:
+        data = f.read()
+
+    tree = ast.parse(data)
+
+    traverse_and_print_functions(tree, func)
